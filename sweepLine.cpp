@@ -5,9 +5,13 @@
 #include <iostream>
 using namespace std;
 
-typedef pair<int, int> point;
-#define x first;
-#define y second;
+struct point
+{
+    int x;
+    int y;
+
+    explicit point(const int& xx, const int& yy) : x{ xx }, y{ yy } {}
+};
 
 struct line
 {
@@ -15,17 +19,17 @@ struct line
     point rp;
     int type;
 
-    explicit line(point p1, point p2, int tp) : lp { p1 }, rp { p2 }, type { tp } {};
+    explicit line(const point& p1, const point& p2, int tp) : lp { p1 }, rp { p2 }, type { tp } {};
 };
 
 bool compare(const line& a, const line& b)
 {
-    return a.lp.first  < b.lp.first;
+    return a.lp.x  < b.lp.x;
 }
 
 bool operator< (const point& a, const point& b)
 {
-    return a.second < b.second;
+    return a.y < b.y;
 }
 
 void interset(const vector<line>& lines)
@@ -44,9 +48,9 @@ void interset(const vector<line>& lines)
                 continue;
             else
             {
-                for (auto it = s.lower_bound(l.lp); it != s.end() && it->second < l.rp.second; ++it)
+                for (auto it = s.lower_bound(l.lp); it != s.end() && it->y < l.rp.y; ++it)
                 {
-                    cout << l.rp.first << " " << it->second << endl;
+                    cout << l.rp.x << " " << it->y << endl;
                 }
             }
         }
@@ -58,26 +62,27 @@ int main()
     int numOfLines;
     cin >> numOfLines;
     vector<line> lines;
+    int p1x, p1y, p2x, p2y;
     for (int i = 0; i < numOfLines; ++i)
     {
-        int p1x, p1y, p2x, p2y;
         cin >> p1x >> p1y >> p2x >> p2y;
 
         if (p1x == p2x) // vertical
         {
             if (p1y < p2y)
-                lines.push_back(line{make_pair(p1x, p1y), make_pair(p2x, p2y), 0});
+                lines.push_back(line{point{p1x, p1y}, point{p2x, p2y}, 0});
             else
-                lines.push_back(line{make_pair(p2x, p2y), make_pair(p1x, p1y), 0});
+                lines.push_back(line{point{p2x, p2y}, point{p1x, p1y}, 0});
         }
         else
         {
-            lines.push_back(line{make_pair(p1x, p1y), make_pair(p2x, p2y), 1});
-            lines.push_back(line{make_pair(p2x, p2y), make_pair(p1x, p1y), 2});
+            lines.push_back(line{point{p1x, p1y}, point{p2x, p2y}, 1});
+            lines.push_back(line{point{p2x, p2y}, point{p1x, p1y}, 2});
         }
     }
 
     sort(lines.begin(), lines.end(), compare);
+
 
     interset(lines);
 
