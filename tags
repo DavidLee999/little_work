@@ -1,0 +1,30 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+ascendingBinarySearch	.\bitonicarray.cpp	/^int ascendingBinarySearch(const vector<Comparable>& arr, int low, int high, const Comparable& x)$/;"	f	signature:(const vector<Comparable>& arr, int low, int high, const Comparable& x)
+bitonicSearch	.\bitonicarray.cpp	/^int bitonicSearch(const vector<Comparable>& arr, int low, int high, const Comparable& x)$/;"	f	signature:(const vector<Comparable>& arr, int low, int high, const Comparable& x)
+compare	.\sweepLine.cpp	/^bool compare(line a, line b)$/;"	f	signature:(line a, line b)
+countInversions	.\countingInversions.cpp	/^int countInversions(const vector<T>& arr)$/;"	f	signature:(const vector<T>& arr)
+countInversions	.\countingInversions.cpp	/^int countInversions(vector<T>& arr, vector<T>& tmp, int left, int right)$/;"	f	signature:(vector<T>& arr, vector<T>& tmp, int left, int right)
+descendingBinarySearch	.\bitonicarray.cpp	/^int descendingBinarySearch(const vector<Comparable>& arr, int low, int high, const Comparable& x)$/;"	f	signature:(const vector<Comparable>& arr, int low, int high, const Comparable& x)
+line	.\sweepLine.cpp	/^    explicit line(point p1, point p2, int tp) : lp { p1 }, rp { p2 }, type { tp } {};$/;"	f	struct:line	access:public	signature:(point p1, point p2, int tp)
+line	.\sweepLine.cpp	/^struct line$/;"	s	file:
+line::line	.\sweepLine.cpp	/^    explicit line(point p1, point p2, int tp) : lp { p1 }, rp { p2 }, type { tp } {};$/;"	f	struct:line	access:public	signature:(point p1, point p2, int tp)
+line::lp	.\sweepLine.cpp	/^    const point lp;$/;"	m	struct:line	file:	access:public
+line::rp	.\sweepLine.cpp	/^    const point rp;$/;"	m	struct:line	file:	access:public
+line::type	.\sweepLine.cpp	/^    const int type;$/;"	m	struct:line	file:	access:public
+lp	.\sweepLine.cpp	/^    const point lp;$/;"	m	struct:line	file:	access:public
+main	.\01string.cpp	/^int main() {$/;"	f	signature:()
+main	.\bitonicarray.cpp	/^int main()$/;"	f	signature:()
+main	.\countingInversions.cpp	/^int main()$/;"	f	signature:()
+main	.\countingWords.cpp	/^int main(int argc, char** argv)$/;"	f	signature:(int argc, char** argv)
+main	.\sweepLine.cpp	/^int main()$/;"	f	signature:()
+merge	.\countingInversions.cpp	/^int merge(vector<T>& a, vector<T>& tmp, int left, int right, int end)$/;"	f	signature:(vector<T>& a, vector<T>& tmp, int left, int right, int end)
+point	.\sweepLine.cpp	/^typedef pair<int, int> point;$/;"	t	file:
+rp	.\sweepLine.cpp	/^    const point rp;$/;"	m	struct:line	file:	access:public
+type	.\sweepLine.cpp	/^    const int type;$/;"	m	struct:line	file:	access:public
+x	.\sweepLine.cpp	9;"	d	file:
+y	.\sweepLine.cpp	10;"	d	file:
