@@ -28,5 +28,7 @@ int main()
         cout << res[i] << " ";
     cout << res[0];
 
+    delete[] cstr;
+
     return 0;
 }
