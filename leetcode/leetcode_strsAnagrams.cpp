@@ -3,6 +3,7 @@
 #include <vector>
 #include <algorithm>
 #include <unordered_map>
+#include <map>
 using namespace std;
 
 bool anagrams(const string& str1, const string& str2)
@@ -56,28 +57,50 @@ vector<string> strsAnagrams(const vector<string> strs)
 }
 
 
-vector<string> strsAnagramsUsingSort(const vector<string> strs)
+void strsAnagramsUsingSort(const vector<string> strs)
 {
-    unordered_map<string, int> test;
+    // multimap<string, string> test;
+    // for (int i = 0; i < strs.size(); ++i)
+    // {
+        // string tmp = strs[i];
+        // sort(tmp.begin(), tmp.end());
+        // test.emplace(tmp, strs[i]);
+    // }
+    
+    
+    // for (multimap<string, string>::iterator it = test.begin(); it != test.end(); ++it)
+    // {
+        // string key = it->first;
+        // if (test.count(key) > 1)
+        // {
+            // pair<multimap<string, string>::iterator, multimap<string, string>::iterator> range = test.equal_range(key);
+            // for (multimap<string, string>::iterator range_begin = range.first; range_begin != range.second; ++range_begin)
+                // cout << range_begin->second << '\t';
+            // cout << '\n';
+        // }
+    // }
+   
+
+    unordered_map<string, vector<string>> test;
     for (int i = 0; i < strs.size(); ++i)
     {
         string tmp = strs[i];
         sort(tmp.begin(), tmp.end());
         
-        ++test[tmp];
+        test[tmp].push_back(strs[i]);
     }
 
-    vector<string> res;
-    for (int i = 0; i < strs.size(); ++i)
+    for (auto it = test.begin(); it != test.end(); ++it)
     {
-        string tmp = strs[i];
-        sort(tmp.begin(), tmp.end());
+        if (it->second.size() > 1)
+        {
+            for (int j = 0; j < it->second.size(); ++j)
+                cout << it->second[j] << '\t';
+            cout << '\n';
+        }
+    } 
 
-        if (test[tmp] > 1)
-            res.push_back(tmp);
-    }
-
-    return res;
+    // return res;
 }
 
 
@@ -90,9 +113,10 @@ int main()
     while (cin>>tmp)
         strs.push_back(tmp);
 
-    vector<string> res = strsAnagramsUsingSort(strs);
+    // vector<string> res = strsAnagramsUsingSort(strs);
+    strsAnagramsUsingSort(strs);
 
-    for (int i = 0; i < res.size(); ++i)
-        cout << res[i] << '\t';
+    // for (int i = 0; i < res.size(); ++i)
+        // cout << res[i] << '\t';
     cout << endl;
 }
